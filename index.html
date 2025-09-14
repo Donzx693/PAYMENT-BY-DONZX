@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PAYMENT BY DONZX</title>
+  <style>
+    :root{
+      --bg:#1b0b0b;
+      --card:#2a0f0f;
+      --accent:#e53935; /* merah utama */
+      --muted:#bdbdbd;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#120707 0%, #240909 60%);color:#fff}
+    .wrap{max-width:980px;margin:32px auto;padding:28px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff6b6b);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(229,57,53,0.22)}
+h1{font-size:20px;margin:0}
+p.lead{margin:0;color:var(--muted);font-size:13px}
+
+nav .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none}
+nav .btn.primary{background:var(--accent);border-color:transparent;color:#fff;box-shadow:0 6px 16px rgba(229,57,53,0.18)}
+
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+@media (max-width:880px){.grid{grid-template-columns:1fr} .wrap{padding:18px}}
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:18px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+.payments{display:flex;flex-direction:column;gap:12px}
+.method{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.03)}
+.method .icon{width:58px;height:58px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),#ff6b6b);font-weight:700}
+.method h3{margin:0;font-size:15px}
+.meta{color:var(--muted);font-size:13px}
+.right{margin-left:auto;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.copy{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+.copy.dark{background:rgba(255,255,255,0.03);color:#fff}
+
+.notice{padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(229,57,53,0.06), rgba(229,57,53,0.02));border:1px solid rgba(229,57,53,0.06);color:var(--muted);font-size:13px}
+
+.sidebar .channel{display:block;text-decoration:none;padding:14px;border-radius:12px;background:linear-gradient(90deg,#ff6b6b,#b71c1c);color:#fff;font-weight:600;text-align:center}
+.sidebar h4{margin:0 0 8px 0}
+
+footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+/* small helpers */
+.muted{color:var(--muted)}
+.sp{height:10px}
+
+/* copy toast */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:32px;padding:10px 16px;border-radius:12px;background:#111;color:#fff;display:none}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">C</div>
+        <div>
+          <h1>PAYMENT BY DONZX</h1>
+          <p class="lead">Pilih saluran pembayaran dan salin nomor untuk melakukan pembayaran.</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#info">Info</a>
+        <a class="btn primary" href="#payments">Bayar Sekarang</a>
+      </nav>
+    </header><div class="grid">
+  <main class="card">
+    <section id="payments">
+      <h2 style="margin-top:0">Saluran Pembayaran</h2>
+      <div class="sp"></div>
+      <div class="payments">
+
+        <!-- DANA -->
+        <div class="method">
+          <div class="icon">D</div>
+          <div>
+            <h3>DANA</h3>
+            <div class="meta">Nomor: <strong id="dana-number">083191124872</strong></div>
+            <div class="meta">Atas Nama: <strong>Donxxx</strong></div>
+          </div>
+          <div class="right">
+            <button class="copy" data-clipboard="083191124872">Salin Nomor</button>
+            <small class="muted">Scan/Transfer via aplikasi DANA</small>
+          </div>
+        </div>
+
+        <!-- OVO -->
+        <div class="method">
+          <div class="icon">O</div>
+          <div>
+            <h3>OVO</h3>
+            <div class="meta">Status: <strong>Belum Tersedia</strong></div>
+            <div class="meta">—</div>
+          </div>
+          <div class="right">
+            <button class="copy" disabled>Belum Tersedia</button>
+            <small class="muted">Kami akan memperbarui jika tersedia</small>
+          </div>
+        </div>
+
+        <!-- GOPAY -->
+        <div class="method">
+          <div class="icon">G</div>
+          <div>
+            <h3>GOPAY</h3>
+            <div class="meta">Nomor: <strong id="gopay-number">081939704573</strong></div>
+            <div class="meta">Atas Nama: <strong>Donxx</strong></div>
+          </div>
+          <div class="right">
+            <button class="copy" data-clipboard="081939704573">Salin Nomor</button>
+            <small class="muted">Gunakan aplikasi GOJEK / GOPAY</small>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sp"></div>
+      <div class="notice">
+        Pastikan jumlah dan nomor tujuan benar sebelum mengirim. Simpan bukti pembayaran dan kirimkan bukti pada channel WhatsApp yang tersedia.
+      </div>
+    </section>
+
+    <div class="sp"></div>
+    <section id="info">
+      <h3 style="margin-top:0">Petunjuk Singkat</h3>
+      <ol style="color:var(--muted);padding-left:18px">
+        <li>Buka aplikasi pembayaran (DANA / GOPAY).</li>
+        <li>Pilih transfer ke nomor atau scan jika tersedia.</li>
+        <li>Masukkan nomor dan konfirmasi pembayaran.</li>
+        <li>Kirimkan bukti pembayaran ke channel WhatsApp.</li>
+      </ol>
+    </section>
+  </main>
+
+  <aside class="sidebar card">
+    <h4>Saluran & Channel</h4>
+    <p class="muted">Klik tombol di bawah untuk bergabung ke channel WhatsApp untuk laporan dan konfirmasi pembayaran.</p>
+    <div style="height:12px"></div>
+    <a class="channel" href="https://whatsapp.com/channel/0029Vb6HevrKrWQqhj3YaG3F" target="_blank" rel="noopener">Buka Channel WhatsApp</a>
+
+    <div style="height:18px"></div>
+    <div>
+      <h4 style="margin-bottom:8px">Ringkasan</h4>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>DANA</span><strong>083191124872</strong></div>
+        <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>OVO</span><strong>Belum</strong></div>
+        <div style="display:flex;justify-content:space-between;color:var(--muted)"><span>GOPAY</span><strong>081939704573</strong></div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+    <div class="muted" style="font-size:12px">Butuh ubahan? Sampaikan nomor atau teks yang mau diganti.</div>
+  </aside>
+</div>
+
+<footer>
+  © Donxxx — Halaman Pembayaran • Desain merah modern
+</footer>
+
+  </div>  <div class="toast" id="toast">Disalin ke clipboard</div>  <script>
+    document.querySelectorAll('.copy').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const text = btn.getAttribute('data-clipboard');
+        if(!text) return;
+        try{
+          await navigator.clipboard.writeText(text);
+          const t = document.getElementById('toast');
+          t.style.display='block';
+          setTimeout(()=>t.style.display='none',1600);
+        }catch(e){
+          alert('Salin gagal — silakan salin manual: '+text);
+        }
+      })
+    })
+  </script></body>
+</html>
